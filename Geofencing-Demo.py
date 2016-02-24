@@ -136,7 +136,7 @@ for i in range (0, len(JSON["data"][0]["observations"])): # Using 0 assumes that
     if JSON["data"][0]["observations"][i]["clientMac"] not in clientNames:
         clientNames[JSON["data"][0]["observations"][i]["clientMac"]] = "UNASSOCIATED"
     
-    print str(i+1)+".\t"+str(printClientMac)+" | "+clientNames[JSON["data"][0]["observations"][i]["clientMac"]]+"\t| "+str(JSON["data"][0]["observations"][i]["manufacturer"])
+    print str(i+1)+".\t"+str(JSON["data"][0]["observations"][i]["clientMac"])+" | "+clientNames[JSON["data"][0]["observations"][i]["clientMac"]]+"\t| "+str(JSON["data"][0]["observations"][i]["manufacturer"])
 clientToTrack = int(raw_input('Enter client number: '))
 clientToTrackIndex = clientToTrack - 1 # Remember indexes start at 0, so we need to reduce the user input by 1 to get the index of the machine they are referring to.
 
@@ -156,7 +156,7 @@ for i in range (0,((minutesToTrackLocationFor*60)/secondsToWaitBetweenRequests))
             if xDiff + yDiff > 0: #if the client moved
                 print "Client moved X: "+str(xDiff)+" Y: "+str(+yDiff)
             else:
-                sys.stdout.write("\rThe client has not moved. %d %d Will look %d more times." %(JSON["data"][0]["observations"][clientToTrackIndex]["x"], JSON["data"][0]["observations"][clientToTrackIndex]["y"], ((minutesToTrackLocationFor*60)/secondsToWaitBetweenRequests)-i))
+                sys.stdout.write("\rThe client has not moved. (X:%d, Y:%d) Will look %d more times." %(JSON["data"][0]["observations"][clientToTrackIndex]["x"], JSON["data"][0]["observations"][clientToTrackIndex]["y"], ((minutesToTrackLocationFor*60)/secondsToWaitBetweenRequests)-i))
                 sys.stdout.flush()
             found = True
     if not found:
