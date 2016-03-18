@@ -5,7 +5,7 @@ This application is provided "As-is" by Aerohive free of charge. It is intended 
 
 #### Running the Application:
 ##### Prerequisites:
-The binary package includes all 3rd party libraries necessary to run in any environment. If you may need to iunstall the following Python packages:
+The binary package includes all 3rd party libraries necessary to run in any environment. The binary package includes all 3rd party libraries necessary to run in any environment. If you choose to make edits to the script and run the .py file, you may need to iunstall the following Python packages:
 * requests: http://docs.python-requests.org/en/master/
 
 ##### Execution:
